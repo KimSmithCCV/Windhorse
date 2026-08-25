@@ -1,0 +1,1189 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Windhorse Vineyard Ã¢â‚¬â€œ Columbia Gorge, Oregon</title>
+<meta name="description" content="Windhorse Vineyard. Estate-grown wines from steep volcanic canyon lands in the Columbia Gorge AVA. Quiet luxury, rooted in place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e0d0b;
+    --ink-deep:#07070a;
+    --ink-soft:#17150f;
+    --gold:#ba9253;
+    --gold-bright:#daba80;
+    --gold-dim:#7e602f;
+    --parchment:#f3eee3;
+    --stone:#a79e8e;
+    --stone-dim:#6d6555;
+    --rule: rgba(198,165,103,0.28);
+    --hairline: rgba(243,238,227,0.12);
+
+    --v-cabfranc:#8b3a2b;
+    --v-sangiovese:#a13d6b;
+    --v-redblend:#b5432e;
+    --v-grenache:#6b3f82;
+    --v-cheninblanc:#c9a227;
+    --v-vermentino:#6e7a3e;
+    --v-primitivo:#8f5b1e;
+    --v-nero:#5b3568;
+
+    --display: 'Playfair Display', Georgia, serif;
+    --body: 'EB Garamond', Georgia, serif;
+    --utility: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+
+    --container: 1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--parchment);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:var(--container);margin:0 auto;padding:0 40px;}
+
+  .eyebrow{
+    font-family:var(--utility);
+    font-weight:400;
+    font-size:15.5px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+
+  .rule{
+    width:56px;height:1px;background:var(--gold-dim);
+    margin:22px 0;
+    position:relative;overflow:hidden;
+  }
+  .rule::after{
+    content:'';position:absolute;inset:0;background:var(--gold);
+    transform:scaleX(0);transform-origin:left;
+    transition:transform 1.1s cubic-bezier(.16,.8,.24,1);
+  }
+  .reveal.in-view .rule::after{transform:scaleX(1);}
+
+  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:0.01em;}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--utility);
+    font-size:12.5px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--parchment);
+    border:1px solid var(--rule);
+    padding:14px 26px;
+    transition:border-color .35s ease, color .35s ease, background .35s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{border-color:var(--gold);color:var(--gold-bright);background:rgba(198,165,103,0.06);}
+  .btn.solid{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+  .btn.solid:hover{background:var(--gold-bright);border-color:var(--gold-bright);color:var(--ink);}
+  .btn svg{width:12px;height:12px;transition:transform .35s ease;}
+  .btn:hover svg{transform:translateX(3px);}
+
+  /* ---------- reveal on scroll ---------- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  .reveal.d1{transition-delay:.08s;}
+  .reveal.d2{transition-delay:.16s;}
+  .reveal.d3{transition-delay:.24s;}
+  .reveal.d4{transition-delay:.32s;}
+
+  /* ---------- NAV ---------- */
+  header.site-nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:26px 0;
+    transition:padding .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  header.site-nav::before{
+    content:'';position:absolute;inset:0;z-index:-1;
+    background:rgba(14,13,11,0.88);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    opacity:0;transition:opacity .4s ease;
+  }
+  header.site-nav.scrolled{
+    padding:16px 0;
+    border-color:var(--hairline);
+  }
+  header.site-nav.scrolled::before{opacity:1;}
+  .nav-inner{
+    max-width:var(--container);margin:0 auto;padding:0 40px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:var(--display);font-size:19px;letter-spacing:0.14em;
+    color:var(--gold);
+  }
+  nav.nav-links{display:flex;gap:38px;}
+  nav.nav-links a{
+    font-family:var(--utility);font-size:12px;letter-spacing:0.2em;
+    text-transform:uppercase;color:var(--parchment);
+    text-shadow:0 1px 6px rgba(0,0,0,0.55);
+    position:relative;padding-bottom:4px;
+  }
+  nav.nav-links a::after{
+    content:'';position:absolute;left:0;bottom:0;height:1px;width:0;
+    background:var(--gold);transition:width .35s ease;
+  }
+  nav.nav-links a:hover{color:var(--parchment);}
+  nav.nav-links a:hover::after{width:100%;}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:100svh;min-height:640px;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-media{
+    position:absolute;inset:0;z-index:0;
+  }
+  .hero-media img,
+  .hero-media video{
+    width:100%;height:100%;object-fit:cover;object-position:center 38%;
+  }
+  .hero-media img{
+    transform:scale(1.08);
+    animation:kenburns 34s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns{
+    0%{transform:scale(1.08) translate3d(0,0,0);}
+    100%{transform:scale(1.16) translate3d(-1%,-1%,0);}
+  }
+  .hero-media::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(7,7,6,0.55) 0%, rgba(7,7,6,0.28) 32%, rgba(7,7,6,0.48) 66%, rgba(7,7,6,0.92) 100%);
+    z-index:1;
+  }
+  .hero-content{
+    position:relative;z-index:2;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+    padding:0 24px;
+  }
+  .hero-frame{
+    border:1px solid var(--rule);
+    padding:46px 60px;
+    animation:frameIn 1.4s cubic-bezier(.16,.8,.24,1) both;
+  }
+  @keyframes frameIn{
+    from{opacity:0;transform:translateY(18px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .hero-region{
+    font-family:var(--utility);font-size:11.5px;letter-spacing:0.4em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(46px, 8vw, 92px);
+    line-height:0.98;
+    letter-spacing:0.045em;
+    color:var(--parchment);
+    text-transform:uppercase;
+  }
+  .hero .sub{
+    font-family:var(--utility);font-weight:300;
+    font-size:clamp(14px,2vw,19px);
+    letter-spacing:0.62em;
+    text-transform:uppercase;
+    color:var(--stone);
+    margin-top:14px;
+    padding-left:0.62em; /* optical centering vs letter-spacing */
+  }
+  .hero-tag{
+    margin-top:30px;
+    font-family:var(--body);font-style:italic;font-size:17px;
+    color:var(--stone);
+  }
+  .scroll-cue{
+    position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+    z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;
+    font-family:var(--utility);font-size:10px;letter-spacing:0.3em;
+    color:var(--stone);text-transform:uppercase;
+  }
+  .scroll-cue::after{
+    content:'';width:1px;height:34px;background:linear-gradient(var(--gold), transparent);
+    animation:scrollpulse 2.2s ease-in-out infinite;
+  }
+  @keyframes scrollpulse{0%,100%{opacity:.25;}50%{opacity:1;}}
+
+  /* ---------- SECTION shells ---------- */
+  section{position:relative;padding:150px 0;}
+  section.tight{padding:120px 0;}
+  .section-head{max-width:640px;margin-bottom:70px;}
+  .section-head h2{font-size:clamp(30px,4vw,44px);color:var(--parchment);}
+  .section-head p{margin-top:20px;color:var(--stone);font-size:18px;max-width:520px;}
+
+  /* ---------- PHILOSOPHY ---------- */
+  .philosophy{background:var(--ink);}
+  .phil-grid{
+    display:grid;grid-template-columns:0.9fr 1.1fr;gap:90px;align-items:start;
+  }
+  .phil-quote{
+    font-family:var(--display);font-style:italic;font-weight:500;
+    font-size:clamp(26px,2.6vw,34px);
+    line-height:1.32;color:var(--parchment);
+  }
+  .phil-quote .mark{color:var(--gold);font-style:normal;}
+  .phil-body p{color:var(--stone);font-size:18.5px;margin-bottom:20px;}
+  .phil-body p:last-child{margin-bottom:0;}
+  .phil-body strong{color:var(--parchment);font-weight:500;}
+  .seal-row{
+    margin-top:44px;display:flex;align-items:center;gap:18px;
+  }
+  .seal-row .caption{
+    font-family:var(--utility);font-size:11px;letter-spacing:0.14em;
+    color:var(--stone-dim);text-transform:uppercase;line-height:1.6;
+  }
+
+  /* ---------- Windhorse logotype (official brand asset) ---------- */
+  .seal-logo{height:92px;width:auto;flex:0 0 auto;}
+
+  /* ---------- Certification logos ---------- */
+  .cert-row{
+    margin-top:36px;display:flex;align-items:flex-end;gap:36px;
+    padding-top:36px;border-top:1px solid var(--hairline);
+  }
+  .cert-row img{height:76px;width:auto;flex:0 0 auto;}
+
+  /* ---------- PLACE / terroir ---------- */
+  .place{background:var(--ink-soft);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);}
+  .terroir-cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--hairline);
+  }
+  .terroir-col{
+    padding:44px 42px 0 42px;
+    border-right:1px solid var(--hairline);
+  }
+  .terroir-col:first-child{padding-left:0;}
+  .terroir-col:last-child{border-right:none;padding-right:0;}
+  .terroir-col .num{
+    font-family:var(--utility);font-size:15px;color:var(--gold-dim);letter-spacing:0.2em;
+  }
+  .terroir-col h3{
+    font-size:24px;color:var(--parchment);margin:16px 0 14px;
+    font-weight:500;
+  }
+  .terroir-col p{color:var(--stone);font-size:16.5px;}
+
+  .management-block{
+    margin-top:70px;padding-top:44px;border-top:1px solid var(--hairline);
+    max-width:640px;
+  }
+  .management-block .num{
+    font-family:var(--utility);font-size:15px;color:var(--gold-dim);letter-spacing:0.2em;
+  }
+  .management-block h3{font-size:24px;color:var(--parchment);margin:16px 0 14px;font-weight:500;}
+  .management-block p{color:var(--stone);font-size:16.5px;}
+
+  .video-block{
+    margin-top:90px;position:relative;
+    border:1px solid var(--rule);
+    aspect-ratio:16/8.2;
+    overflow:hidden;
+    cursor:pointer;
+    background:#000;
+  }
+  .video-block img{width:100%;height:100%;object-fit:cover;opacity:0.72;transition:opacity .5s ease, transform 8s ease;}
+  .video-block:hover img{opacity:0.86;transform:scale(1.03);}
+  .video-block iframe{width:100%;height:100%;border:0;position:absolute;inset:0;}
+  .play-btn{
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:74px;height:74px;border-radius:50%;
+    border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;
+    transition:background .35s ease, transform .35s ease;
+    background:rgba(14,13,11,0.35);
+    backdrop-filter:blur(3px);
+  }
+  .video-block:hover .play-btn{background:var(--gold);transform:translate(-50%,-50%) scale(1.06);}
+  .play-btn svg{width:18px;height:18px;fill:var(--gold);margin-left:3px;transition:fill .35s ease;}
+  .video-block:hover .play-btn svg{fill:var(--ink);}
+  .video-caption{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:22px 28px;
+    display:flex;justify-content:space-between;align-items:flex-end;
+    background:linear-gradient(0deg, rgba(7,7,6,0.75), transparent);
+  }
+  .video-caption .t{font-family:var(--utility);font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--parchment);}
+  .video-caption .t small{display:block;color:var(--stone);letter-spacing:0.12em;margin-top:5px;font-size:11px;}
+
+  /* ---------- WINES ---------- */
+  .wines{background:var(--ink);}
+  .wine-head{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:40px;
+    margin-bottom:70px;
+  }
+  .wine-head p{color:var(--stone);max-width:420px;font-size:17px;}
+
+  .wine-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--hairline);
+    border:1px solid var(--hairline);
+  }
+  .wine-card{
+    background:var(--ink);
+    padding:48px 34px 38px;
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    position:relative;
+    transition:background .4s ease;
+  }
+  .wine-card:hover{background:var(--ink-soft);}
+  .wine-bottle{
+    height:250px;display:flex;align-items:flex-end;margin-bottom:26px;
+    transition:transform .5s cubic-bezier(.16,.8,.24,1);
+  }
+  .wine-card:hover .wine-bottle{transform:translateY(-8px);}
+  .wine-bottle img{height:100%;width:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,0.55));}
+  .wine-dot{width:8px;height:8px;border-radius:50%;margin-bottom:14px;}
+  .wine-name{font-family:var(--utility);font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--parchment);}
+  .wine-region{font-family:var(--utility);font-size:14px;letter-spacing:0.1em;color:var(--stone-dim);margin-top:6px;text-transform:uppercase;}
+  .wine-note{font-family:var(--body);font-style:italic;color:var(--stone);font-size:15.5px;margin-top:16px;line-height:1.55;min-height:48px;}
+  .wine-award{
+    margin-top:14px;font-family:var(--utility);font-size:10.5px;letter-spacing:0.1em;
+    color:var(--gold-dim);text-transform:uppercase;
+  }
+  .wine-link{
+    margin-top:22px;font-family:var(--utility);font-size:11.5px;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--gold);
+    padding-bottom:3px;border-bottom:1px solid transparent;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .wine-card:hover .wine-link{border-color:var(--gold);}
+  .wine-link svg{width:10px;height:10px;}
+
+  .wine-cta{
+    text-align:center;margin-top:60px;
+  }
+  .wine-cta p{color:var(--stone-dim);font-size:14px;font-family:var(--utility);letter-spacing:0.04em;margin-bottom:22px;}
+
+  /* ---------- AWARDS ---------- */
+  .awards{margin-top:90px;padding-top:70px;border-top:1px solid var(--hairline);}
+  .awards .eyebrow{margin-bottom:16px;}
+  .awards h3{font-size:clamp(26px,3vw,36px);color:var(--parchment);font-weight:500;margin-bottom:50px;}
+  .awards-cols{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--hairline);
+  }
+  .award-col{padding:34px 42px 0 42px;border-right:1px solid var(--hairline);}
+  .award-col:first-child{padding-left:0;}
+  .award-col:last-child{border-right:none;padding-right:0;}
+  .award-vintage{font-family:var(--utility);font-size:14px;letter-spacing:0.14em;color:var(--gold-dim);text-transform:uppercase;}
+  .award-col h4{font-size:19px;color:var(--parchment);font-weight:500;margin:10px 0 18px;}
+  .award-list{list-style:none;margin:0;padding:0;}
+  .award-list li{
+    font-size:14.5px;color:var(--stone);line-height:1.5;
+    padding-left:16px;position:relative;margin-bottom:12px;
+  }
+  .award-list li:last-child{margin-bottom:0;}
+  .award-list li::before{
+    content:'';position:absolute;left:0;top:8px;
+    width:5px;height:5px;border-radius:50%;background:var(--gold);
+  }
+  .award-list .source{display:block;color:var(--stone-dim);font-size:15px;margin-top:2px;}
+  @media (max-width:980px){
+    .awards-cols{grid-template-columns:1fr;}
+    .award-col{border-right:none;border-bottom:1px solid var(--hairline);padding:34px 0;}
+    .award-col:last-child{border-bottom:none;padding-bottom:0;}
+  }
+
+  /* ---------- GRAPES ---------- */
+  .grapes{background:var(--ink-soft);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);}
+  .grape-factors{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border-top:1px solid var(--hairline);margin-top:70px;
+  }
+  .grape-factor{padding:44px 42px 0 42px;border-right:1px solid var(--hairline);}
+  .grape-factor:first-child{padding-left:0;}
+  .grape-factor:last-child{border-right:none;padding-right:0;}
+  .grape-factor .num{font-family:var(--utility);font-size:15px;color:var(--gold-dim);letter-spacing:0.2em;}
+  .grape-factor h3{font-size:24px;color:var(--parchment);margin:16px 0 14px;font-weight:500;}
+  .grape-factor p{color:var(--stone);font-size:16.5px;}
+
+  /* ---------- BLOCK MAP ---------- */
+  .blockmap{background:var(--ink);}
+  .blockmap-frame{
+    position:relative;margin-top:70px;
+    border:1px solid var(--rule);overflow:hidden;
+    aspect-ratio:1088/812;background:#000;
+  }
+  .blockmap-frame img{width:100%;height:100%;object-fit:cover;}
+  .blockmap-frame::before{
+    content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(ellipse at top left, rgba(7,7,6,0.92) 0%, rgba(7,7,6,0.6) 24%, rgba(7,7,6,0) 46%);
+  }
+  .blockmap-label{
+    position:absolute;top:30px;left:34px;z-index:2;pointer-events:none;
+  }
+  .blockmap-label .eyebrow{margin-bottom:10px;}
+  .blockmap-label h3{font-size:22px;color:var(--parchment);font-weight:500;}
+  .blockmap-label-mobile{display:none;}
+  .block-pin{
+    position:absolute;transform:translate(-50%,-50%);
+    top:var(--t);left:var(--l);
+    width:16px;height:16px;aspect-ratio:1/1;flex:0 0 auto;
+    display:flex;align-items:center;justify-content:center;
+    background:none;border:none;padding:0;
+    cursor:pointer;z-index:2;
+  }
+  .block-pin::before{
+    content:'';box-sizing:border-box;
+    width:16px;height:16px;aspect-ratio:1/1;flex:0 0 auto;border-radius:50%;
+    border:2px solid var(--parchment);
+    background:var(--c);
+    box-shadow:0 0 0 4px rgba(7,7,6,0.35);
+    transition:transform .25s ease;
+  }
+  .block-pin:hover::before, .block-pin:focus-visible::before, .block-pin.active::before{transform:scale(1.35);}
+  .block-pin:focus-visible{outline:none;}
+  .block-tooltip{
+    position:absolute;z-index:3;
+    background:var(--ink-deep);border:1px solid var(--rule);
+    padding:16px 20px;min-width:190px;
+    font-family:var(--utility);
+    opacity:0;pointer-events:none;transform:translateY(6px);
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .block-tooltip.show{opacity:1;transform:translateY(0);}
+  .block-tooltip .name{font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:6px;}
+  .block-tooltip .variety{font-family:var(--body);font-style:italic;color:var(--parchment);font-size:16px;margin-bottom:8px;}
+  .block-tooltip .meta{font-size:11px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;margin-top:4px;}
+  .block-tooltip .meta:first-of-type{margin-top:0;}
+  .blockmap-note{margin-top:22px;color:var(--stone-dim);font-size:13.5px;font-family:var(--utility);letter-spacing:0.03em;}
+
+  /* ---------- SITE MAPS ---------- */
+  .site-maps{margin-top:60px;}
+  .site-maps-head{margin-bottom:34px;}
+  .site-maps-head h3{font-size:20px;color:var(--parchment);font-weight:500;}
+  .site-maps-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+    background:var(--hairline);border:1px solid var(--hairline);
+  }
+  .site-map-card{background:var(--ink-soft);display:block;}
+  .site-map-card .cap{transition:color .3s ease;}
+  .site-map-card:hover .cap{color:var(--gold-bright);}
+  .site-map-card .thumb{aspect-ratio:4/3;overflow:hidden;background:#000;}
+  .site-map-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .site-map-card:hover img{transform:scale(1.05);}
+  .site-map-card .cap{
+    padding:16px 18px;font-family:var(--utility);font-size:12px;letter-spacing:0.1em;
+    text-transform:uppercase;color:var(--stone);
+  }
+  @media (max-width:980px){.site-maps-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:640px){.site-maps-grid{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- COMING SOON (Pricing / Availability) ---------- */
+  .coming-soon{border-top:1px solid var(--hairline);}
+  .coming-soon.alt{background:var(--ink-soft);}
+  .coming-soon-box{
+    margin-top:50px;border:1px dashed var(--rule);
+    padding:56px 40px;text-align:center;
+  }
+  .coming-soon-box .tag{
+    display:inline-block;font-family:var(--utility);font-size:11px;letter-spacing:0.2em;
+    text-transform:uppercase;color:var(--gold-dim);border:1px solid var(--rule);
+    padding:6px 16px;margin-bottom:18px;
+  }
+  .coming-soon-box p{color:var(--stone);font-size:17px;max-width:480px;margin:0 auto;}
+
+  /* ---------- PHOTOS ---------- */
+  .photos{background:var(--ink);}
+  .photo-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px;
+    margin-top:70px;
+  }
+  .photo-grid button{display:block;overflow:hidden;position:relative;border:0;padding:0;margin:0;background:none;cursor:pointer;width:100%;height:100%;}
+  .photo-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.16,.8,.24,1);}
+  .photo-grid button:hover img{transform:scale(1.06);}
+  .photo-grid button.wide{grid-column:span 2;}
+  .photo-grid button.tall{grid-row:span 2;}
+  @media (max-width:980px){
+    .grape-grid{grid-template-columns:1fr;}
+    .photo-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;}
+    .photo-grid button.wide{grid-column:span 2;}
+  }
+  @media (max-width:640px){
+    .photo-grid{grid-template-columns:1fr;}
+    .photo-grid button.wide,.photo-grid button.tall{grid-column:span 1;grid-row:span 1;}
+  }
+
+  /* ---------- PHOTO LIGHTBOX ---------- */
+  .photo-lightbox{
+    position:fixed;inset:0;z-index:200;
+    background:rgba(7,7,6,0.95);
+    display:flex;align-items:center;justify-content:center;
+    padding:70px 90px;
+  }
+  .photo-lightbox[hidden]{display:none;}
+  .photo-lightbox-img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--rule);}
+  .photo-lightbox-close, .photo-lightbox-nav{
+    position:absolute;background:none;border:1px solid var(--rule);color:var(--parchment);
+    cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:border-color .3s ease, color .3s ease;
+  }
+  .photo-lightbox-close:hover, .photo-lightbox-nav:hover{border-color:var(--gold);color:var(--gold-bright);}
+  .photo-lightbox-close{top:26px;right:26px;width:44px;height:44px;font-size:16px;border-radius:50%;}
+  .photo-lightbox-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:18px;border-radius:50%;}
+  .photo-lightbox-nav.prev{left:24px;}
+  .photo-lightbox-nav.next{right:24px;}
+  @media (max-width:640px){
+    .photo-lightbox{padding:80px 20px;}
+    .photo-lightbox-nav{width:42px;height:42px;}
+    .photo-lightbox-nav.prev{left:8px;}
+    .photo-lightbox-nav.next{right:8px;}
+  }
+
+  /* ---------- VISIT ---------- */
+  .visit{
+    background:var(--ink-soft);
+    border-top:1px solid var(--hairline);
+  }
+  .visit-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    border:1px solid var(--hairline);
+  }
+  .visit-media{position:relative;min-height:520px;background-size:cover;background-position:center;}
+  /* .visit-media::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(14,13,11,0) 60%, rgba(23,21,15,1) 100%);
+  } */
+  .visit-text{padding:70px 64px;display:flex;flex-direction:column;justify-content:center;}
+  .visit-text h2{font-size:clamp(28px,3.4vw,40px);color:var(--parchment);margin-bottom:22px;}
+  .visit-text p{color:var(--stone);font-size:17.5px;margin-bottom:16px;}
+  .visit-contact{margin-top:34px;display:flex;flex-direction:column;gap:8px;}
+  .visit-contact a, .visit-contact span{
+    font-family:var(--utility);font-size:14px;letter-spacing:0.04em;color:var(--parchment);
+  }
+  .visit-contact a:hover{color:var(--gold);}
+  .visit-text .btn{margin-top:30px;align-self:flex-start;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink-deep);padding:80px 0 34px;}
+  .footer-top{
+    display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:50px;
+    padding-bottom:60px;border-bottom:1px solid var(--hairline);
+  }
+  .footer-logo{height:58px;width:auto;}
+  .footer-tag{margin-top:16px;color:var(--stone-dim);font-size:18px;max-width:260px;}
+  .footer-col h4{
+    font-family:var(--utility);font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--gold-dim);margin-bottom:18px;
+  }
+  .footer-col a, .footer-col p{
+    display:block;color:var(--stone);font-size:15px;margin-bottom:10px;font-family:var(--body);
+  }
+  .footer-col a:hover{color:var(--gold-bright);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:28px;flex-wrap:wrap;gap:16px;
+  }
+  .footer-bottom p{font-family:var(--utility);font-size:11.5px;letter-spacing:0.06em;color:var(--stone-dim);}
+  .social-row{display:flex;gap:22px;}
+  .social-row a{font-family:var(--utility);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--stone);}
+  .social-row a:hover{color:var(--gold);}
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px){
+    .wrap{padding:0 26px;}
+    .nav-inner{padding:0 26px;}
+    section{padding:100px 0;}
+    .phil-grid{grid-template-columns:1fr;gap:44px;}
+    .terroir-cols{grid-template-columns:1fr;}
+    .terroir-col{border-right:none;border-bottom:1px solid var(--hairline);padding:34px 0;}
+    .terroir-col:last-child{border-bottom:none;padding-bottom:0;}
+    .grape-factors{grid-template-columns:1fr;}
+    .grape-factor{border-right:none;border-bottom:1px solid var(--hairline);padding:34px 0;}
+    .grape-factor:last-child{border-bottom:none;padding-bottom:0;}
+    .blockmap-label-desktop{display:none;}
+    .blockmap-label-mobile{
+      display:block;position:static;margin-top:70px;pointer-events:auto;
+    }
+    .blockmap-frame{margin-top:24px;}
+    .wine-grid{grid-template-columns:repeat(2,1fr);}
+    .visit-grid{grid-template-columns:1fr;}
+    .visit-media{min-height:280px;}
+    /* .visit-media::after{background:linear-gradient(180deg, rgba(14,13,11,0) 60%, rgba(23,21,15,1) 100%);} */
+    .visit-text{padding:56px 34px;}
+    .footer-top{grid-template-columns:1fr 1fr;row-gap:40px;}
+  }
+  @media (max-width: 640px){
+    nav.nav-links{
+      position:fixed;inset:0 0 0 auto;width:78%;max-width:320px;
+      background:var(--ink);
+      flex-direction:column;justify-content:center;align-items:flex-start;
+      gap:30px;padding:60px 40px;
+      transform:translateX(100%);transition:transform .45s cubic-bezier(.16,.8,.24,1);
+      z-index:200;border-left:1px solid var(--hairline);
+      visibility:hidden;pointer-events:none;
+    }
+    nav.nav-links.open{transform:translateX(0);visibility:visible;pointer-events:auto;}
+    nav.nav-links a{font-size:14px;color:var(--parchment);font-weight:500;}
+    .nav-toggle{
+      display:flex;flex-direction:column;gap:5px;background:none;border:none;
+      cursor:pointer;z-index:201;padding:8px;
+    }
+    .nav-toggle span{width:22px;height:1px;background:var(--parchment);}
+    .hero-frame{padding:30px 22px;}
+    .hero .sub{letter-spacing:0.4em;}
+    .wine-grid{grid-template-columns:1fr;}
+    .wine-head{flex-direction:column;align-items:flex-start;}
+    .footer-top{grid-template-columns:1fr;}
+    .nav-scrim{
+      display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:150;
+    }
+    .nav-scrim.open{display:block;}
+    .blockmap-frame{aspect-ratio:1088/544;}
+    .blockmap-frame img{object-position:50% 15.15%;}
+    .block-pin{top:var(--mt, var(--t));width:40px;height:40px;}
+    .block-pin::before{width:11px;height:11px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-media img{animation:none;}
+    .hero-media video{display:none;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-mark">WINDHORSE</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#philosophy">Philosophy</a>
+      <a href="#place">Vineyard</a>
+      <a href="#grapes">Grapes</a>
+      <a href="#wines">Wines</a>
+      <a href="#photos">Photos</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+<div class="nav-scrim" id="navScrim"></div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media" style="background-image:url('images/hero-aerial.jpg');background-size:cover;background-position:center 38%;">
+      <video autoplay muted loop playsinline poster="images/hero-aerial.jpg">
+        <source src="videos/hero-web.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-content">
+      <div class="hero-frame">
+        <div class="hero-region">Columbia Gorge &middot; Oregon</div>
+        <h1>Windhorse<br>Vineyard</h1>
+        <div class="sub">Estate Grown &middot; Single Vineyard</div>
+      </div>
+      <p class="hero-tag">Wines of quiet luxury, cultivated on volcanic canyon land.</p>
+    </div>
+    <div class="scroll-cue">Scroll</div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy" id="philosophy">
+    <div class="wrap">
+      <div class="phil-grid">
+        <div class="reveal">
+          <p class="eyebrow">Philosophy</p>
+          <div class="rule"></div>
+          <p class="phil-quote"><span class="mark">&ldquo;</span>Wines that speak for the soil, the land, the plants, and the region<span class="mark">.&rdquo;</span></p>
+        </div>
+        <div class="phil-body reveal d2">
+          <p>Windhorse Vineyard takes its name from <em>lungta</em>, the Tibetan windhorse, a mythic creature that carries positive energy and life force through the world. On the traditional prayer flag, the windhorse stands at the center, joined by a snow lion, a tiger, a garuda, and a dragon in each corner. Together they represent the five dignities of earth, air, fire, water, and space, the elements from which all things are formed.</p>
+          <p>It is a fitting name for a place shaped by fierce canyon winds and steep volcanic ground. Rather than lean on ornamentation, we let the fruit, the land, and a disciplined hand in the cellar speak for the wine.</p>
+          <p>We farm with those same elements in mind. Every choice on the estate is made to benefit the soil, the water, the air, the vines and wild species that share this land, the people who tend it, and the region as a whole.</p>
+          <p>Windhorse is one of only two vineyards in the Columbia Gorge to hold both L.I.V.E. and Salmon-Safe certification, a commitment to farming that protects the soil, the watershed, and the wild land the vines share.</p>
+          <div class="cert-row">
+            <img src="images/live-logo-gold.png" alt="LIVE Certified Sustainable Grapes">
+            <img src="images/salmon-safe-logo-gold.png" alt="Salmon-Safe certified">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLACE / TERROIR -->
+  <section class="place" id="place">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">The Vineyard</p>
+        <div class="rule"></div>
+        <h2>Steep ground, wild company.</h2>
+        <p>Thirty-four planted acres rise to 1,300 feet within a 170-acre oak-pine-grass savannah, land held wild and protected from development, watched over by the Cascade volcanoes.</p>
+      </div>
+
+      <div class="terroir-cols reveal d2">
+        <div class="terroir-col">
+          <div class="num">Soil</div>
+          <h3>Volcanic canyon land</h3>
+          <p>Alfisols weathered from volcanic sandstone under mixed oak-pine woodland, free-draining, mineral, and slow to give up their water.</p>
+        </div>
+        <div class="terroir-col">
+          <div class="num">Climate</div>
+          <h3>Wind and full sun</h3>
+          <p>Cloud-free summer days and relentless westerly wind thicken the skins of the red varieties, concentrating flavor and color through to harvest.</p>
+        </div>
+        <div class="terroir-col">
+          <div class="num">Region</div>
+          <h3>Columbia Gorge AVA</h3>
+          <p>Five miles southwest of The Dalles, Oregon, in view of both Mt. Hood and Mt. Adams, new terroir, still being understood one vintage at a time.</p>
+        </div>
+      </div>
+
+      <div class="video-block reveal d3" id="droneVideo" data-yt="4Y2YD2R9Rh8">
+        <img src="images/video-thumbnail.webp" alt="Aerial drone still of Windhorse Vineyard rows on the canyon slope" loading="lazy">
+        <div class="play-btn"><svg viewBox="0 0 24 24"><path d="M6 4l15 8-15 8z"/></svg></div>
+        <div class="video-caption">
+          <div class="t">Watch<br><small>The Vineyard, From Above</small></div>
+        </div>
+      </div>
+
+      <div class="management-block reveal d4">
+        <div class="num">Farming</div>
+        <h3>Vineyard management</h3>
+        <p>Day-to-day farming at Windhorse is led by Nick MacKay of Results Partners, a vineyard management company established in 1985. Results Partners works with growers across the Willamette Valley, Columbia Gorge, and Columbia Valley, bringing decades of hands-on, international farming experience to how our vines are trained, monitored, and picked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAPES -->
+  <section class="grapes" id="grapes">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Why Windhorse</p>
+        <div class="rule"></div>
+        <h2>A site built for grape growing.</h2>
+        <p>Windhorse's vines climb to 1,325 feet, high enough to sit above the Arctic cold air that can pool below 600 feet in this valley and kill a vintage in a hard winter. Above that line, three site conditions do the real work of growing exceptional fruit.</p>
+      </div>
+      <div class="grape-factors reveal d2">
+        <div class="grape-factor">
+          <div class="num">Heat</div>
+          <h3>West-facing exposure</h3>
+          <p>Steep, west-facing volcanic slopes catch dramatic growing-season heat, driving the fruit to full sugar ripeness.</p>
+        </div>
+        <div class="grape-factor">
+          <div class="num">Wind</div>
+          <h3>Strong westerly winds</h3>
+          <p>Relentless wind imposes healthy stress on the vines, thickening the flavor- and color-producing skins of our red grapes.</p>
+        </div>
+        <div class="grape-factor">
+          <div class="num">Soil &amp; Water</div>
+          <h3>Deep loam, deficit irrigation</h3>
+          <p>Deep loamy soils hold water through the season; controlled deficit irrigation adds moderate stress once fruit colors up, balancing bold flavor against favorable acidity.</p>
+        </div>
+      </div>
+
+      <div class="blockmap-label blockmap-label-mobile reveal d3">
+        <p class="eyebrow">Estate Map</p>
+        <h3>Vineyard Blocks</h3>
+      </div>
+      <div class="blockmap-frame reveal d3" id="blockMap">
+        <img src="images/block-map-clean2.jpg" alt="Windhorse Vineyard blocks map, Columbia Gorge AVA, Oregon" loading="lazy">
+        <div class="blockmap-label blockmap-label-desktop">
+          <p class="eyebrow">Estate Map</p>
+          <h3>Vineyard Blocks</h3>
+        </div>
+        <!-- pin positions calibrated by clicking each block center on the live map -->
+        <button class="block-pin" style="--t:26.2%;--l:38.4%;--mt:31.64%;--c:var(--v-grenache)" data-name="Block 2" data-variety="Grenache" data-year="2022" data-acres="4.94" data-availability="12 tons"></button>
+        <button class="block-pin" style="--t:26.7%;--l:51%;--mt:32.39%;--c:var(--v-sangiovese)" data-name="Block 3" data-variety="Sangiovese" data-year="2022" data-acres="4.54" data-availability="8 tons"></button>
+        <button class="block-pin" style="--t:19.2%;--l:45.5%;--mt:21.19%;--c:var(--v-sangiovese)" data-name="Block 6" data-variety="Sangiovese" data-year="2021" data-acres="1.97" data-availability="4 tons"></button>
+        <button class="block-pin" style="--t:22.3%;--l:57.8%;--mt:25.82%;--c:var(--v-cabfranc)" data-name="Block 4" data-variety="Cabernet Franc" data-year="2024" data-acres="3.36" data-availability="2.5 tons"></button>
+        <button class="block-pin" style="--t:15.8%;--l:51.7%;--mt:16.12%;--c:var(--v-cabfranc)" data-name="Block 7" data-variety="Cabernet Franc" data-year="2021" data-acres="1.81" data-availability="3 tons"></button>
+        <button class="block-pin" style="--t:13%;--l:57.3%;--mt:11.94%;--c:var(--v-nero)" data-name="Block 8" data-variety="Nero d&rsquo;Avola" data-year="2021" data-acres="2.40" data-availability="Call for availability"></button>
+        <button class="block-pin" style="--t:21.5%;--l:64.6%;--mt:24.63%;--c:var(--v-nero)" data-name="Block 5" data-variety="Nero d&rsquo;Avola" data-year="2024" data-acres="2.73" data-availability="Call for availability"></button>
+        <button class="block-pin" style="--t:13.5%;--l:63%;--mt:12.69%;--c:var(--v-grenache)" data-name="Block 9" data-variety="Grenache" data-year="2021" data-acres="0.97" data-availability="Fully contracted"></button>
+        <button class="block-pin" style="--t:12.8%;--l:67%;--mt:11.64%;--c:var(--v-primitivo)" data-name="Block 10a" data-variety="Primitivo" data-year="2022" data-acres="3.08" data-availability="Call for availability"></button>
+        <button class="block-pin" style="--t:19.1%;--l:67%;--mt:21.04%;--c:var(--v-primitivo)" data-name="Block 10b" data-variety="Primitivo" data-year="2024" data-acres="1.56" data-availability="2 tons"></button>
+        <button class="block-pin" style="--t:52.2%;--l:51%;--mt:70.45%;--c:var(--v-vermentino)" data-name="Block 1a" data-variety="Vermentino" data-year="Planned 2027" data-acres="1.96" data-availability="First crop expected 2029"></button>
+        <button class="block-pin" style="--t:59.5%;--l:60%;--mt:81.34%;--c:var(--v-vermentino)" data-name="Block 1a" data-variety="Vermentino" data-year="Planned 2027" data-acres="1.96" data-availability="First crop expected 2029"></button>
+        <button class="block-pin" style="--t:56.0%;--l:50.1%;--mt:76.12%;--c:var(--v-cheninblanc)" data-name="Block 1b" data-variety="Chenin Blanc" data-year="2024" data-acres="1.14" data-availability="Call for availability"></button>
+        <button class="block-pin" style="--t:64%;--l:58.8%;--mt:88.06%;--c:var(--v-cheninblanc)" data-name="Block 1c" data-variety="Chenin Blanc" data-year="2024" data-acres="1.01" data-availability="Call for availability"></button>
+        <div class="block-tooltip" id="blockTooltip">
+          <div class="name" id="blockTooltipName"></div>
+          <div class="variety" id="blockTooltipVariety"></div>
+          <div class="meta" id="blockTooltipMeta"></div>
+          <div class="meta" id="blockTooltipAvailability"></div>
+        </div>
+      </div>
+      <p class="blockmap-note reveal d4">31.49 estate acres across 13 blocks, planted 2021&ndash;2024, rising from the 500&rsquo; valley floor to a 1,355&rsquo; high point. Hover or tap a pin for block detail and availability.</p>
+      <a class="btn reveal d4" href="images/2026-Windhorse-Vineyard-Pricing-Sheet.pdf" target="_blank" rel="noopener" style="margin-top:26px;">Download Pricing Sheet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg></a>
+
+      <div class="site-maps reveal d4">
+        <div class="site-maps-head">
+          <p class="eyebrow">Site Maps</p>
+          <div class="rule"></div>
+        </div>
+        <div class="site-maps-grid">
+          <a class="site-map-card" href="images/Soil-Map.pdf" target="_blank" rel="noopener"><div class="thumb"><img src="images/site-map-1.jpg" alt="Windhorse Vineyard soils map" loading="lazy"></div><div class="cap">Soils Map</div></a>
+          <a class="site-map-card" href="images/Slope%20Map.pdf" target="_blank" rel="noopener"><div class="thumb"><img src="images/site-map-2.jpg" alt="Windhorse Vineyard slope map" loading="lazy"></div><div class="cap">Slope Map</div></a>
+          <a class="site-map-card" href="images/Aspect-Map.pdf" target="_blank" rel="noopener"><div class="thumb"><img src="images/site-map-3.jpg" alt="Windhorse Vineyard aspect map" loading="lazy"></div><div class="cap">Aspect Map</div></a>
+          <a class="site-map-card" href="images/Contours-Map.pdf" target="_blank" rel="noopener"><div class="thumb"><img src="images/site-map-4.jpg" alt="Windhorse Vineyard contours map" loading="lazy"></div><div class="cap">Contours Map</div></a>
+          <a class="site-map-card" href="images/Area-Contours-Map.pdf" target="_blank" rel="noopener"><div class="thumb"><img src="images/site-map-5.jpg" alt="Windhorse Vineyard area contours map" loading="lazy"></div><div class="cap">Area Contours Map</div></a>
+          <a class="site-map-card" href="images/Perspective-View.pdf" target="_blank" rel="noopener"><div class="thumb"><img src="images/site-map-6.jpg" alt="Windhorse Vineyard perspective view 1" loading="lazy"></div><div class="cap">Perspective View 1</div></a>
+          <a class="site-map-card" href="images/Perspective-View-2.pdf" target="_blank" rel="noopener"><div class="thumb"><img src="images/site-map-7.jpg" alt="Windhorse Vineyard perspective view 2" loading="lazy"></div><div class="cap">Perspective View 2</div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINES -->
+  <section class="wines" id="wines">
+    <div class="wrap">
+      <div class="wine-head reveal">
+        <div>
+          <p class="eyebrow">Current Release</p>
+          <div class="rule"></div>
+          <h2 style="font-size:clamp(30px,4vw,44px);color:var(--parchment);">The Portfolio</h2>
+        </div>
+        <p>Seven estate varietals, each labeled with its own hand-foiled seal color, a quiet system for telling one bottle from the next.</p>
+      </div>
+
+      <div class="wine-grid">
+
+        <div class="wine-card reveal">
+          <div class="wine-bottle"><img src="images/wine-nero-davola.png" alt="Windhorse Vineyard 2025 Nero d'Avola bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-nero)"></span>
+          <div class="wine-name">Nero d&rsquo;Avola</div>
+          <div class="wine-region">Columbia Gorge &middot; 2025</div>
+          <p class="wine-note">Dark plum and blackberry, layered with cocoa powder and white pepper.</p>
+          <div class="wine-award">Featured &middot; One of the First PNW Plantings</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="wine-card reveal d1">
+          <div class="wine-bottle"><img src="images/wine-cabernet-franc.png" alt="Windhorse Vineyard Cabernet Franc bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-cabfranc)"></span>
+          <div class="wine-name">Cabernet Franc</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <p class="wine-note">Structured and savory, with red currant and a graphite edge.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="wine-card reveal d2">
+          <div class="wine-bottle"><img src="images/wine-sangiovese.png" alt="Windhorse Vineyard Sangiovese bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-sangiovese)"></span>
+          <div class="wine-name">Sangiovese</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <p class="wine-note">Bright cherry and dried herb, fine tannin, a savory finish.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="wine-card reveal">
+          <div class="wine-bottle"><img src="images/wine-red-blend.png" alt="Windhorse Vineyard Red Blend bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-redblend)"></span>
+          <div class="wine-name">Red Blend</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <p class="wine-note">Estate reds layered together: dark fruit, warm spice, long finish.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="wine-card reveal d1">
+          <div class="wine-bottle"><img src="images/wine-grenache.png" alt="Windhorse Vineyard Grenache bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-grenache)"></span>
+          <div class="wine-name">Grenache</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <p class="wine-note">Wind-thickened skins give this red its color and its grip.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="wine-card reveal d2">
+          <div class="wine-bottle"><img src="images/wine-chenin-blanc.png" alt="Windhorse Vineyard Chenin Blanc bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-cheninblanc)"></span>
+          <div class="wine-name">Chenin Blanc</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <p class="wine-note">Orchard fruit and wet stone, with real acid to carry it.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+      </div>
+
+      <div class="wine-cta reveal">
+        <p>One more on the estate: Primitivo, Columbia Gorge 2024.</p>
+        <a href="#shop" target="_blank" rel="noopener" class="btn solid">Shop the Full Collection</a>
+      </div>
+
+      <div class="awards reveal">
+        <p class="eyebrow">Recognition</p>
+        <h3>Awards &amp; Accolades</h3>
+        <div class="awards-cols">
+          <div class="award-col">
+            <p class="award-vintage">2023 Windhorse</p>
+            <h4>Nero d&rsquo;Avola</h4>
+            <ul class="award-list">
+              <li>93 Points, Gold<span class="source">Great Northwest Wine</span></li>
+            </ul>
+          </div>
+          <div class="award-col">
+            <p class="award-vintage">2023</p>
+            <h4>Ros&eacute; of Sangiovese</h4>
+            <ul class="award-list">
+              <li>97 Points, Double Platinum<span class="source">Great Northwest Wine</span></li>
+              <li>94 Points, Double Gold<span class="source">Pacific Northwest Wine</span></li>
+              <li>90 Points<span class="source">Sean Sullivan</span></li>
+            </ul>
+          </div>
+          <div class="award-col">
+            <p class="award-vintage">2021 Windhorse</p>
+            <h4>Zinfandel</h4>
+            <ul class="award-list">
+              <li>91 Points, Hidden Gem<span class="source">Wine Enthusiast</span></li>
+              <li>Platinum<span class="source">Great Northwest Wine</span></li>
+              <li>92 Points<span class="source">Tasting Room Magazine</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  <section class="photos" id="photos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Gallery</p>
+        <div class="rule"></div>
+        <h2>The canyon, the mountainside, the vines.</h2>
+        <p>Photographs from the estate, its steep ground, wild company, and the fruit it grows.</p>
+      </div>
+      <div class="photo-grid reveal d2" id="photoGrid">
+        <button class="wide tall" data-full="images/gallery/web/2024-windhorse-vineyard-0052-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0052-smaller.jpg" alt="Aerial view of Windhorse Vineyard rows with Mt. Hood on the horizon" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0002-smaller-copy.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0002-smaller-copy.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0004-smaller-copy.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0004-smaller-copy.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button class="wide" data-full="images/gallery/web/2024-windhorse-vineyard-0027-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0027-smaller.jpg" alt="A trail through the oak woodland at Windhorse Vineyard at golden hour" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0022-smaller-copy.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0022-smaller-copy.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0030-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0030-smaller.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0034-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0034-smaller.jpg" alt="Grapevine rows at Windhorse Vineyard at sunset" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0041-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0041-smaller.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0045-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0045-smaller.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024-windhorse-vineyard-0046-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0046-smaller.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="photo-lightbox-close" type="button" aria-label="Close">&#10005;</button>
+    <button class="photo-lightbox-nav prev" type="button" aria-label="Previous photo">&#10094;</button>
+    <img class="photo-lightbox-img" id="photoLightboxImg" src="" alt="">
+    <button class="photo-lightbox-nav next" type="button" aria-label="Next photo">&#10095;</button>
+  </div>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="visit-grid reveal">
+        <div class="visit-media" style="background-image:url('images/Windhorse-View.jpg');"></div>
+        <div class="visit-text" id="contact">
+          <p class="eyebrow">Visit</p>
+          <div class="rule"></div>
+          <h2>Come sit in the wind.</h2>
+          <p>Windhorse now welcomes visitors for picnics, guided tastings, and farm-to-fork meals on the canyon land, by appointment.</p>
+          <div class="visit-contact">
+            <span>5698 Mill Creek Road, The Dalles, OR 97058</span>
+            <a href="tel:5095920756">509.592.0756</a>
+            <a href="mailto:info@windhorsevineyard.com">info@windhorsevineyard.com</a>
+          </div>
+          <a href="mailto:info@windhorsevineyard.com?subject=Vineyard%20Visit%20Inquiry" class="btn">Plan a Visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <img class="footer-logo" src="images/CCV_WV_Logo_Bumper_Simple_300.png" alt="Windhorse Vineyard">
+        <p class="footer-tag">Estate wines from volcanic canyon land in the Columbia Gorge AVA. Produced by Capital Call Vintners.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#place">Vineyard</a>
+        <a href="#wines">Wines</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <p>5698 Mill Creek Road<br>The Dalles, OR 97058</p>
+        <a href="tel:5095920756">509.592.0756</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:info@windhorsevineyard.com">info@windhorsevineyard.com</a>
+        <a href="https://www.instagram.com/windhorsevineyard/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/WindhorseVineyard/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Windhorse Vineyard &middot; Capital Call Vintners. All rights reserved.</p>
+      <div class="social-row">
+        <a href="https://www.instagram.com/windhorsevineyard/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/WindhorseVineyard/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll state
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, {passive:true});
+
+  // mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  const scrim = document.getElementById('navScrim');
+  function closeMenu(){links.classList.remove('open');scrim.classList.remove('open');}
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    scrim.classList.toggle('open');
+  });
+  scrim.addEventListener('click', closeMenu);
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+  }, {threshold:0.16});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // video facades -> click to play youtube-nocookie embed
+  document.querySelectorAll('.video-block').forEach(block => {
+    block.addEventListener('click', () => {
+      const id = block.dataset.yt;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      block.innerHTML = '';
+      block.appendChild(iframe);
+      block.style.cursor = 'default';
+    }, {once:true});
+  });
+
+  // block map tooltips
+  const blockMap = document.getElementById('blockMap');
+  if(blockMap){
+    const tip = document.getElementById('blockTooltip');
+    const tipName = document.getElementById('blockTooltipName');
+    const tipVariety = document.getElementById('blockTooltipVariety');
+    const tipMeta = document.getElementById('blockTooltipMeta');
+    const tipAvailability = document.getElementById('blockTooltipAvailability');
+    let activePin = null;
+
+    function showTip(pin){
+      if(activePin) activePin.classList.remove('active');
+      activePin = pin;
+      pin.classList.add('active');
+      tipName.textContent = pin.dataset.name;
+      tipVariety.innerHTML = pin.dataset.variety;
+      tipMeta.innerHTML = `Planted ${pin.dataset.year}<br>${pin.dataset.acres} Acres`;
+      tipAvailability.textContent = `Availability: ${pin.dataset.availability}`;
+
+      const mapRect = blockMap.getBoundingClientRect();
+      const pinRect = pin.getBoundingClientRect();
+      const pinLeft = ((pinRect.left + pinRect.width/2 - mapRect.left) / mapRect.width) * 100;
+      const pinTop = ((pinRect.top + pinRect.height/2 - mapRect.top) / mapRect.height) * 100;
+      tip.style.opacity = '0';
+      tip.classList.add('show');
+      requestAnimationFrame(() => {
+        const tipW = tip.offsetWidth, tipH = tip.offsetHeight;
+        let left = (pinLeft/100)*mapRect.width + 18;
+        let top = (pinTop/100)*mapRect.height - tipH/2;
+        if(left + tipW > mapRect.width - 10) left = (pinLeft/100)*mapRect.width - tipW - 18;
+        top = Math.max(10, Math.min(top, mapRect.height - tipH - 10));
+        tip.style.left = left + 'px';
+        tip.style.top = top + 'px';
+        tip.style.opacity = '1';
+      });
+    }
+    function hideTip(){
+      if(activePin) activePin.classList.remove('active');
+      activePin = null;
+      tip.classList.remove('show');
+      tip.style.opacity = '0';
+    }
+
+    blockMap.querySelectorAll('.block-pin').forEach(pin => {
+      pin.addEventListener('mouseenter', () => showTip(pin));
+      pin.addEventListener('mouseleave', hideTip);
+      pin.addEventListener('focus', () => showTip(pin));
+      pin.addEventListener('blur', hideTip);
+      pin.addEventListener('click', (e) => {
+        e.preventDefault();
+        if(activePin === pin){ hideTip(); } else { showTip(pin); }
+      });
+    });
+    document.addEventListener('click', (e) => {
+      if(activePin && !blockMap.contains(e.target)) hideTip();
+    });
+
+  }
+
+  // photo lightbox
+  const photoGrid = document.getElementById('photoGrid');
+  if(photoGrid){
+    const lightbox = document.getElementById('photoLightbox');
+    const lightboxImg = document.getElementById('photoLightboxImg');
+    const photos = Array.from(photoGrid.querySelectorAll('button'));
+    let photoIndex = 0;
+
+    function openPhoto(i){
+      photoIndex = (i + photos.length) % photos.length;
+      const btn = photos[photoIndex];
+      lightboxImg.src = btn.dataset.full;
+      lightboxImg.alt = btn.querySelector('img').alt;
+      lightbox.hidden = false;
+    }
+    function closePhoto(){ lightbox.hidden = true; lightboxImg.src = ''; }
+
+    photos.forEach((btn, i) => btn.addEventListener('click', () => openPhoto(i)));
+    lightbox.querySelector('.photo-lightbox-close').addEventListener('click', closePhoto);
+    lightbox.querySelector('.photo-lightbox-nav.prev').addEventListener('click', () => openPhoto(photoIndex - 1));
+    lightbox.querySelector('.photo-lightbox-nav.next').addEventListener('click', () => openPhoto(photoIndex + 1));
+    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closePhoto(); });
+    document.addEventListener('keydown', (e) => {
+      if(lightbox.hidden) return;
+      if(e.key === 'Escape') closePhoto();
+      if(e.key === 'ArrowLeft') openPhoto(photoIndex - 1);
+      if(e.key === 'ArrowRight') openPhoto(photoIndex + 1);
+    });
+  }
+</script>
+
+</body>
+</html>

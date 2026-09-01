@@ -568,9 +568,9 @@
     background:var(--ink-soft);
     border-top:1px solid var(--hairline);
   }
+  .visit-card{border:1px solid var(--hairline);}
   .visit-grid{
     display:grid;grid-template-columns:1fr 1fr;gap:0;
-    border:1px solid var(--hairline);
   }
   .visit-media{position:relative;min-height:520px;background-size:cover;background-position:center;}
   /* .visit-media::after{
@@ -591,7 +591,7 @@
   .visit-contact a:hover{color:var(--gold);}
   .visit-text .btn{margin-top:30px;align-self:flex-start;}
   .visit-details{
-    margin-top:80px;padding-top:60px;border-top:1px solid var(--hairline);
+    padding:60px 64px;border-top:1px solid var(--hairline);
     display:grid;grid-template-columns:1fr 1fr;gap:70px;
   }
   .visit-details p{color:var(--stone);font-size:16.5px;margin-bottom:18px;}
@@ -644,7 +644,7 @@
     .visit-media{min-height:280px;}
     /* .visit-media::after{background:linear-gradient(180deg, rgba(14,13,11,0) 60%, rgba(23,21,15,1) 100%);} */
     .visit-text{padding:56px 34px;}
-    .visit-details{grid-template-columns:1fr;gap:40px;margin-top:56px;padding-top:44px;}
+    .visit-details{grid-template-columns:1fr;gap:40px;padding:44px 34px;}
     .footer-top{grid-template-columns:1fr 1fr;row-gap:40px;}
   }
   @media (max-width: 640px){
@@ -895,7 +895,7 @@
           <div class="rule"></div>
           <h2 style="font-size:clamp(30px,4vw,44px);color:var(--parchment);">The Portfolio</h2>
         </div>
-        <p>Seven estate varietals, each labeled with its own hand-foiled seal color, a quiet system for telling one bottle from the next.</p>
+        <p>Windhorse Vineyard is an estate vineyard for Capital Call Vintners in Walla Walla. Seven estate varietals, each labeled with its own hand-foiled seal highlight the craftsmanship and authenticity of Windhorse and serves as the central element of the brand identify for this estate wine.</p>
       </div>
 
       <div class="wine-grid">
@@ -1030,28 +1030,30 @@
   <!-- VISIT -->
   <section class="visit" id="visit">
     <div class="wrap">
-      <div class="visit-grid reveal">
-        <div class="visit-media" style="background-image:url('images/Windhorse-View.jpg');"></div>
-        <div class="visit-text" id="contact">
-          <p class="eyebrow">Day Immersions</p>
-          <div class="rule"></div>
-          <h2>Come sit in the wind.</h2>
-          <p class="visit-season">Available seasonally from April through September</p>
-          <p>A curated wine tasting and picnic experience set against the stunning backdrop of Mill Creek Valley, Mt. Hood, and Mt. Adams. An unforgettable backdrop with plenty of photo opportunities. Designed for parties of four to ten, this intimate experience invites guests to explore the vineyard, its wines, and the unique landscape of the Columbia Gorge.</p>
-          <a href="mailto:info@windhorsevineyard.com?subject=Vineyard%20Visit%20Inquiry" class="btn">Plan a Visit</a>
+      <div class="visit-card reveal">
+        <div class="visit-grid">
+          <div class="visit-media" style="background-image:url('images/Windhorse-View.jpg');"></div>
+          <div class="visit-text" id="contact">
+            <p class="eyebrow">Day Immersions</p>
+            <div class="rule"></div>
+            <h2>Come sit in the wind.</h2>
+            <p class="visit-season">Available seasonally from April through September</p>
+            <p>A curated wine tasting and picnic experience set against the stunning backdrop of Mill Creek Valley, Mt. Hood, and Mt. Adams. An unforgettable backdrop with plenty of photo opportunities. Designed for parties of four to ten, this intimate experience invites guests to explore the vineyard, its wines, and the unique landscape of the Columbia Gorge.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="visit-details reveal">
-        <div class="visit-details-col">
-          <p>Guests will enjoy a guided conversation on the history of the Columbia Gorge AVA with Dr. Alan Busacca, soil scientist, Ph.D., and partner at Windhorse Vineyard and Capital Call Vintners. Alan will share insights into the vineyard&rsquo;s terroir, farming practices, and the region&rsquo;s geology, alongside a wine flight featuring selections from Windhorse Vineyard and our second estate site, Wheatfield Vines Vineyard in Walla Walla.</p>
-        </div>
-        <div class="visit-details-col">
-          <p class="eyebrow">Reservation Details</p>
-          <p>The Windhorse Experience is $150 per person, waived with a purchase of six bottles or more per person. Capital Call <a href="https://capitalcallvintners.com/wine-club/" target="_blank" rel="noopener" style="color:var(--gold);">Founder&rsquo;s List</a> members can enjoy this experience for $75 per person.</p>
-          <div class="visit-contact">
-            <a href="mailto:Alan@WindhorseVineyard.com">Alan@WindhorseVineyard.com to reserve</a>
-            <span>5698 Mill Creek Road, The Dalles, OR 97058</span>
+        <div class="visit-details">
+          <div class="visit-details-col">
+            <p>Guests will enjoy a guided conversation on the history of the Columbia Gorge AVA with Dr. Alan Busacca, soil scientist, Ph.D., and partner at Windhorse Vineyard and Capital Call Vintners. Alan will share insights into the vineyard&rsquo;s terroir, farming practices, and the region&rsquo;s geology, alongside a wine flight featuring selections from Windhorse Vineyard and our second estate site, Wheatfield Vines Vineyard in Walla Walla.</p>
+          </div>
+          <div class="visit-details-col">
+            <p class="eyebrow">Reservation Details</p>
+            <p>The Windhorse Experience is $150 per person, waived with a purchase of six bottles or more per person. Capital Call <a href="https://capitalcallvintners.com/wine-club/" target="_blank" rel="noopener" style="color:var(--gold);">Founder&rsquo;s List</a> members can enjoy this experience for $75 per person.</p>
+            <div class="visit-contact">
+              <a href="mailto:Alan@WindhorseVineyard.com">Alan@WindhorseVineyard.com to reserve</a>
+              <span>5698 Mill Creek Road, The Dalles, OR 97058</span>
+            </div>
+            <a href="mailto:info@windhorsevineyard.com?subject=Vineyard%20Visit%20Inquiry" class="btn" style="margin-top:26px;">Plan a Visit</a>
           </div>
         </div>
       </div>

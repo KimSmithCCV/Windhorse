@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Windhorse Vineyard | Columbia Gorge AVA</title>
 <meta name="description" content="Windhorse Vineyard. Estate-grown wines from steep volcanic canyon lands in the Columbia Gorge AVA. Quiet luxury, rooted in place.">
+<link rel="icon" type="image/png" href="images/windhorse_mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0e0d0b;
@@ -30,10 +31,12 @@
     --v-vermentino:#6e7a3e;
     --v-primitivo:#8f5b1e;
     --v-nero:#5b3568;
+    --v-rose:#c17a8a;
+    --v-doctordirt:#2f7d78;
 
-    --display: 'Playfair Display', Georgia, serif;
-    --body: 'EB Garamond', Georgia, serif;
-    --utility: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+    --display: 'Libre Baskerville', Georgia, serif;
+    --body: 'Libre Baskerville', Georgia, serif;
+    --utility: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
 
     --container: 1180px;
   }
@@ -75,7 +78,7 @@
   }
   .reveal.in-view .rule::after{transform:scaleX(1);}
 
-  h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:0.01em;}
+  h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:0.01em;}
 
   .btn{
     display:inline-flex;align-items:center;gap:10px;
@@ -217,6 +220,7 @@
     font-family:var(--utility);font-size:10px;letter-spacing:0.3em;
     color:var(--stone);text-transform:uppercase;
   }
+  .scroll-mark{width:44px;height:auto;opacity:0.9;}
   .scroll-cue::after{
     content:'';width:1px;height:34px;background:linear-gradient(var(--gold), transparent);
     animation:scrollpulse 2.2s ease-in-out infinite;
@@ -227,8 +231,8 @@
   section{position:relative;padding:150px 0;}
   section.tight{padding:120px 0;}
   .section-head{max-width:640px;margin-bottom:70px;}
-  .section-head h2{font-size:clamp(30px,4vw,44px);color:var(--parchment);}
-  .section-head p{margin-top:20px;color:var(--stone);font-size:18px;max-width:520px;}
+  .section-head h2{font-size:clamp(30px,4vw,44px);color:var(--parchment);text-wrap:balance;}
+  .section-head p{margin-top:20px;color:var(--stone);font-size:18px;max-width:520px;text-wrap:pretty;}
 
   /* ---------- PHILOSOPHY ---------- */
   .philosophy{background:var(--ink);}
@@ -236,7 +240,7 @@
     display:grid;grid-template-columns:0.9fr 1.1fr;gap:90px;align-items:start;
   }
   .phil-quote{
-    font-family:var(--display);font-style:italic;font-weight:500;
+    font-family:var(--display);font-style:italic;font-weight:400;
     font-size:clamp(26px,2.6vw,34px);
     line-height:1.32;color:var(--parchment);
   }
@@ -279,7 +283,7 @@
   }
   .terroir-col h3{
     font-size:24px;color:var(--parchment);margin:16px 0 14px;
-    font-weight:500;
+    font-weight:400;
   }
   .terroir-col p{color:var(--stone);font-size:16.5px;}
 
@@ -290,7 +294,7 @@
   .management-block .num{
     font-family:var(--utility);font-size:15px;color:var(--gold-dim);letter-spacing:0.2em;
   }
-  .management-block h3{font-size:24px;color:var(--parchment);margin:16px 0 14px;font-weight:500;}
+  .management-block h3{font-size:24px;color:var(--parchment);margin:16px 0 14px;font-weight:400;}
   .management-block p{color:var(--stone);font-size:16.5px;}
 
   .video-block{
@@ -352,6 +356,7 @@
     transition:transform .5s cubic-bezier(.16,.8,.24,1);
   }
   .wine-card:hover .wine-bottle{transform:translateY(-8px);}
+  .wine-bottle.placeholder{align-items:center;justify-content:center;}
   .wine-bottle img{height:100%;width:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,0.55));}
   .wine-dot{width:8px;height:8px;border-radius:50%;margin-bottom:14px;}
   .wine-name{font-family:var(--utility);font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:var(--parchment);}
@@ -378,7 +383,7 @@
   /* ---------- AWARDS ---------- */
   .awards{margin-top:90px;padding-top:70px;border-top:1px solid var(--hairline);}
   .awards .eyebrow{margin-bottom:16px;}
-  .awards h3{font-size:clamp(26px,3vw,36px);color:var(--parchment);font-weight:500;margin-bottom:50px;}
+  .awards h3{font-size:clamp(26px,3vw,36px);color:var(--parchment);font-weight:400;margin-bottom:50px;}
   .awards-cols{
     display:grid;grid-template-columns:repeat(3,1fr);gap:0;
     border-top:1px solid var(--hairline);
@@ -387,7 +392,7 @@
   .award-col:first-child{padding-left:0;}
   .award-col:last-child{border-right:none;padding-right:0;}
   .award-vintage{font-family:var(--utility);font-size:14px;letter-spacing:0.14em;color:var(--gold-dim);text-transform:uppercase;}
-  .award-col h4{font-size:19px;color:var(--parchment);font-weight:500;margin:10px 0 18px;}
+  .award-col h4{font-size:19px;color:var(--parchment);font-weight:400;margin:10px 0 18px;}
   .award-list{list-style:none;margin:0;padding:0;}
   .award-list li{
     font-size:14.5px;color:var(--stone);line-height:1.5;
@@ -415,7 +420,7 @@
   .grape-factor:first-child{padding-left:0;}
   .grape-factor:last-child{border-right:none;padding-right:0;}
   .grape-factor .num{font-family:var(--utility);font-size:15px;color:var(--gold-dim);letter-spacing:0.2em;}
-  .grape-factor h3{font-size:24px;color:var(--parchment);margin:16px 0 14px;font-weight:500;}
+  .grape-factor h3{font-size:24px;color:var(--parchment);margin:16px 0 14px;font-weight:400;}
   .grape-factor p{color:var(--stone);font-size:16.5px;}
 
   /* ---------- BLOCK MAP ---------- */
@@ -434,7 +439,7 @@
     position:absolute;top:30px;left:34px;z-index:2;pointer-events:none;
   }
   .blockmap-label .eyebrow{margin-bottom:10px;}
-  .blockmap-label h3{font-size:22px;color:var(--parchment);font-weight:500;}
+  .blockmap-label h3{font-size:22px;color:var(--parchment);font-weight:400;}
   .blockmap-label-mobile{display:none;}
   .block-pin{
     position:absolute;transform:translate(-50%,-50%);
@@ -467,12 +472,19 @@
   .block-tooltip .variety{font-family:var(--body);font-style:italic;color:var(--parchment);font-size:16px;margin-bottom:8px;}
   .block-tooltip .meta{font-size:11px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;margin-top:4px;}
   .block-tooltip .meta:first-of-type{margin-top:0;}
+  .blockmap-hint{
+    margin-top:10px;font-family:var(--utility);font-size:12px;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--stone);
+  }
   .blockmap-note{margin-top:22px;color:var(--stone-dim);font-size:13.5px;font-family:var(--utility);letter-spacing:0.03em;}
+  .blockmap-legend{margin-top:20px;display:flex;flex-wrap:wrap;gap:12px 28px;}
+  .legend-item{display:inline-flex;align-items:center;gap:8px;font-family:var(--utility);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--stone);}
+  .legend-item i{width:10px;height:10px;border-radius:50%;flex:0 0 auto;display:inline-block;}
 
   /* ---------- SITE MAPS ---------- */
   .site-maps{margin-top:60px;}
   .site-maps-head{margin-bottom:34px;}
-  .site-maps-head h3{font-size:20px;color:var(--parchment);font-weight:500;}
+  .site-maps-head h3{font-size:20px;color:var(--parchment);font-weight:400;}
   .site-maps-grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
     background:var(--hairline);border:1px solid var(--hairline);
@@ -581,7 +593,7 @@
     display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:50px;
     padding-bottom:60px;border-bottom:1px solid var(--hairline);
   }
-  .footer-logo{height:58px;width:auto;}
+  .footer-logo{height:38px;width:auto;}
   .footer-tag{margin-top:16px;color:var(--stone-dim);font-size:18px;max-width:260px;}
   .footer-col h4{
     font-family:var(--utility);font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;
@@ -701,7 +713,7 @@
       </div>
       <p class="hero-tag">Wines of quiet luxury, cultivated on volcanic canyon land.</p>
     </div>
-    <div class="scroll-cue">Scroll</div>
+    <div class="scroll-cue"><img src="images/windhorse_mark.png" alt="" class="scroll-mark"> Scroll</div>
   </section>
 
   <!-- PHILOSOPHY -->
@@ -767,6 +779,7 @@
         <div class="num">Farming</div>
         <h3>Vineyard management</h3>
         <p>Day-to-day farming at Windhorse is led by Nick MacKay of Results Partners, a vineyard management company established in 1985. Results Partners works with growers across the Willamette Valley, Columbia Gorge, and Columbia Valley, bringing decades of hands-on, international farming experience to how our vines are trained, monitored, and picked.</p>
+        <p style="margin-top:16px;"><a href="mailto:Nick.Mackay@ResultPartners.com" style="color:var(--gold);">Nick.Mackay@ResultPartners.com</a></p>
       </div>
     </div>
   </section>
@@ -801,12 +814,14 @@
       <div class="blockmap-label blockmap-label-mobile reveal d3">
         <p class="eyebrow">Estate Map</p>
         <h3>Vineyard Blocks</h3>
+        <p class="blockmap-hint">Hover or tap a pin for block detail and availability.</p>
       </div>
       <div class="blockmap-frame reveal d3" id="blockMap">
         <img src="images/block-map-clean2.jpg" alt="Windhorse Vineyard blocks map, Columbia Gorge AVA, Oregon" loading="lazy">
         <div class="blockmap-label blockmap-label-desktop">
           <p class="eyebrow">Estate Map</p>
           <h3>Vineyard Blocks</h3>
+          <p class="blockmap-hint">Hover or tap a pin for block detail and availability.</p>
         </div>
         <!-- pin positions calibrated by clicking each block center on the live map -->
         <button class="block-pin" style="--t:26.2%;--l:38.4%;--mt:31.64%;--c:var(--v-grenache)" data-name="Block 2" data-variety="Grenache" data-year="2022" data-acres="4.94" data-availability="12 tons"></button>
@@ -830,7 +845,16 @@
           <div class="meta" id="blockTooltipAvailability"></div>
         </div>
       </div>
-      <p class="blockmap-note reveal d4">31.49 estate acres across 13 blocks, planted 2021&ndash;2024, rising from the 500&rsquo; valley floor to a 1,355&rsquo; high point. Hover or tap a pin for block detail and availability.</p>
+      <p class="blockmap-note reveal d4">31.49 estate acres across 13 blocks, planted 2021&ndash;2024, rising from the 500&rsquo; valley floor to a 1,355&rsquo; high point.</p>
+      <div class="blockmap-legend reveal d4">
+        <span class="legend-item"><i style="background:var(--v-cabfranc)"></i>Cabernet Franc</span>
+        <span class="legend-item"><i style="background:var(--v-sangiovese)"></i>Sangiovese</span>
+        <span class="legend-item"><i style="background:var(--v-nero)"></i>Nero d&rsquo;Avola</span>
+        <span class="legend-item"><i style="background:var(--v-grenache)"></i>Grenache</span>
+        <span class="legend-item"><i style="background:var(--v-primitivo)"></i>Primitivo</span>
+        <span class="legend-item"><i style="background:var(--v-cheninblanc)"></i>Chenin Blanc</span>
+        <span class="legend-item"><i style="background:var(--v-vermentino)"></i>Vermentino</span>
+      </div>
       <a class="btn reveal d4" href="images/2026-Windhorse-Vineyard-Pricing-Sheet.pdf" target="_blank" rel="noopener" style="margin-top:26px;">Download Pricing Sheet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg></a>
 
       <div class="site-maps reveal d4">
@@ -925,43 +949,36 @@
           <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
 
-      </div>
-
-      <div class="wine-cta reveal">
-        <p>One more on the estate: Primitivo, Columbia Gorge 2024.</p>
-        <a href="#shop" target="_blank" rel="noopener" class="btn solid">Shop the Full Collection</a>
-      </div>
-
-      <div class="awards reveal">
-        <p class="eyebrow">Recognition</p>
-        <h3>Awards &amp; Accolades</h3>
-        <div class="awards-cols">
-          <div class="award-col">
-            <p class="award-vintage">2023 Windhorse</p>
-            <h4>Nero d&rsquo;Avola</h4>
-            <ul class="award-list">
-              <li>93 Points, Gold<span class="source">Great Northwest Wine</span></li>
-            </ul>
-          </div>
-          <div class="award-col">
-            <p class="award-vintage">2023</p>
-            <h4>Ros&eacute; of Sangiovese</h4>
-            <ul class="award-list">
-              <li>97 Points, Double Platinum<span class="source">Great Northwest Wine</span></li>
-              <li>94 Points, Double Gold<span class="source">Pacific Northwest Wine</span></li>
-              <li>90 Points<span class="source">Sean Sullivan</span></li>
-            </ul>
-          </div>
-          <div class="award-col">
-            <p class="award-vintage">2021 Windhorse</p>
-            <h4>Zinfandel</h4>
-            <ul class="award-list">
-              <li>91 Points, Hidden Gem<span class="source">Wine Enthusiast</span></li>
-              <li>Platinum<span class="source">Great Northwest Wine</span></li>
-              <li>92 Points<span class="source">Tasting Room Magazine</span></li>
-            </ul>
-          </div>
+        <div class="wine-card reveal">
+          <div class="wine-bottle placeholder"><img src="images/windhorse_mark.png" alt="" style="height:64px;width:auto;opacity:0.35;"></div>
+          <span class="wine-dot" style="background:var(--v-primitivo)"></span>
+          <div class="wine-name">Primitivo</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <p class="wine-note">Sun-ripened dark fruit with a rustic, spiced edge.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
+
+        <div class="wine-card reveal d1">
+          <div class="wine-bottle"><img src="images/bottles/Rose-of-Sangiovese-2024-inpage.webp" alt="Windhorse Vineyard Ros&eacute; of Sangiovese bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-rose)"></span>
+          <div class="wine-name">Ros&eacute; of Sangiovese</div>
+          <div class="wine-region">Columbia Gorge &middot; 2025</div>
+          <p class="wine-note">Pale copper pink, crisp red berry and citrus zest.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="https://capitalcallvintners.com/2025-rose-of-sangiovese/" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
+        <div class="wine-card reveal d2">
+          <div class="wine-bottle"><img src="images/bottles/1_Dr%20Dirt_in_page-Red-blend_wine.png" alt="Doctor Dirt Red Wine bottle" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-doctordirt)"></span>
+          <div class="wine-name">Doctor Dirt</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <p class="wine-note">A bold red blend with dark fruit and a rustic, earthy core.</p>
+          <div class="wine-award">Estate Grown</div>
+          <a class="wine-link" href="#shop" target="_blank" rel="noopener">View &amp; Purchase <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+
       </div>
     </div>
   </section>
@@ -986,6 +1003,8 @@
         <button data-full="images/gallery/web/2024-windhorse-vineyard-0041-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0041-smaller.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
         <button data-full="images/gallery/web/2024-windhorse-vineyard-0045-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0045-smaller.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
         <button data-full="images/gallery/web/2024-windhorse-vineyard-0046-smaller.jpg"><img src="images/gallery/web/2024-windhorse-vineyard-0046-smaller.jpg" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024_Windhorse_Vineyard_0015.webp"><img src="images/gallery/web/2024_Windhorse_Vineyard_0015.webp" alt="Windhorse Vineyard estate" loading="lazy"></button>
+        <button data-full="images/gallery/web/2024_Windhorse_Vineyard_0017.webp"><img src="images/gallery/web/2024_Windhorse_Vineyard_0017.webp" alt="Windhorse Vineyard estate" loading="lazy"></button>
       </div>
     </div>
   </section>
@@ -1024,7 +1043,7 @@
   <div class="wrap">
     <div class="footer-top">
       <div>
-        <img class="footer-logo" src="images/CCV_WV_Logo_Bumper_Simple_300.png" alt="Windhorse Vineyard">
+        <img class="footer-logo" src="images/windhorse_mark.png" alt="Windhorse Vineyard">
         <p class="footer-tag">Estate wines from volcanic canyon land in the Columbia Gorge AVA. Produced by Capital Call Vintners.</p>
       </div>
       <div class="footer-col">

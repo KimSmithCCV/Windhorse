@@ -578,14 +578,24 @@
     background:linear-gradient(90deg, rgba(14,13,11,0) 60%, rgba(23,21,15,1) 100%);
   } */
   .visit-text{padding:70px 64px;display:flex;flex-direction:column;justify-content:center;}
-  .visit-text h2{font-size:clamp(28px,3.4vw,40px);color:var(--parchment);margin-bottom:22px;}
+  .visit-text h2{font-size:clamp(28px,3.4vw,40px);color:var(--parchment);margin-bottom:12px;}
   .visit-text p{color:var(--stone);font-size:17.5px;margin-bottom:16px;}
+  .visit-season{
+    font-family:var(--utility);font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--gold-dim);margin-bottom:22px !important;
+  }
   .visit-contact{margin-top:34px;display:flex;flex-direction:column;gap:8px;}
   .visit-contact a, .visit-contact span{
     font-family:var(--utility);font-size:14px;letter-spacing:0.04em;color:var(--parchment);
   }
   .visit-contact a:hover{color:var(--gold);}
   .visit-text .btn{margin-top:30px;align-self:flex-start;}
+  .visit-details{
+    margin-top:80px;padding-top:60px;border-top:1px solid var(--hairline);
+    display:grid;grid-template-columns:1fr 1fr;gap:70px;
+  }
+  .visit-details p{color:var(--stone);font-size:16.5px;margin-bottom:18px;}
+  .visit-details .eyebrow{margin-bottom:16px;}
 
   /* ---------- FOOTER ---------- */
   footer{background:var(--ink-deep);padding:80px 0 34px;}
@@ -634,6 +644,7 @@
     .visit-media{min-height:280px;}
     /* .visit-media::after{background:linear-gradient(180deg, rgba(14,13,11,0) 60%, rgba(23,21,15,1) 100%);} */
     .visit-text{padding:56px 34px;}
+    .visit-details{grid-template-columns:1fr;gap:40px;margin-top:56px;padding-top:44px;}
     .footer-top{grid-template-columns:1fr 1fr;row-gap:40px;}
   }
   @media (max-width: 640px){
@@ -1022,16 +1033,29 @@
       <div class="visit-grid reveal">
         <div class="visit-media" style="background-image:url('images/Windhorse-View.jpg');"></div>
         <div class="visit-text" id="contact">
-          <p class="eyebrow">Day Immersions</p>
+          <p class="eyebrow">Experience Windhorse</p>
           <div class="rule"></div>
-          <h2>Come sit in the wind.</h2>
-          <p>Windhorse now welcomes visitors for picnics, guided tastings, and farm-to-fork meals on the canyon land, by appointment.</p>
+          <h2>Day Immersions</h2>
+          <p class="visit-season">Available seasonally from April through September</p>
+          <p>We&rsquo;re delighted to welcome you to Windhorse Vineyard, just outside The Dalles, Oregon, for a curated wine tasting and picnic experience. Overlooking the Mill Creek Valley, the vineyard offers sweeping views of Mt. Hood and Mt. Adams, an unforgettable backdrop with plenty of photo opportunities. Designed for parties of four to ten, this intimate experience invites guests to explore the vineyard, its wines, and the unique landscape of the Columbia Gorge.</p>
           <div class="visit-contact">
             <span>5698 Mill Creek Road, The Dalles, OR 97058</span>
             <a href="tel:5095920756">509.592.0756</a>
             <a href="mailto:info@windhorsevineyard.com">info@windhorsevineyard.com</a>
           </div>
           <a href="mailto:info@windhorsevineyard.com?subject=Vineyard%20Visit%20Inquiry" class="btn">Plan a Visit</a>
+        </div>
+      </div>
+
+      <div class="visit-details reveal">
+        <div class="visit-details-col">
+          <p>Guests will enjoy a guided conversation on the history of the Columbia Gorge AVA with Dr. Alan Busacca, soil scientist, Ph.D., and partner at Windhorse Vineyard and Capital Call Vintners. Alan will share insights into the vineyard&rsquo;s terroir, farming practices, and the region&rsquo;s geology, alongside a wine flight featuring selections from Windhorse Vineyard and our second estate site, Wheatfield Vines Vineyard in Walla Walla.</p>
+          <p>We recommend allowing up to three hours for this experience. Comfortable walking shoes are encouraged, along with a layer for wind or sun, and an adventurous spirit. We look forward to sharing this remarkable setting with you.</p>
+        </div>
+        <div class="visit-details-col">
+          <p class="eyebrow">Reservation Details</p>
+          <p>The Windhorse Experience is $150 per person, waived with a purchase of six bottles or more per person. Founders List members can enjoy this experience for $75 per person.</p>
+          <p>A reservation fee will be taken at the time of booking. Please reach out for cancellations within 48 hours of the reservation for rescheduling purposes. Last-minute cancellations may not be fully refundable.</p>
         </div>
       </div>
     </div>

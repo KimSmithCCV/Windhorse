@@ -52,7 +52,7 @@
     {
       "@type": "Product",
       "position": 1,
-      "name": "Windhorse Vineyard Nero d’Avola 2025",
+      "name": "Windhorse Vineyard Nero d’Avola 2024",
       "description": "Dark plum and blackberry, layered with cocoa powder and white pepper. One of the first Pacific Northwest plantings of this Sicilian varietal.",
       "image": "https://windhorsevineyard.com/images/wine-nero-davola.png",
       "brand": {"@type": "Brand", "name": "Windhorse Vineyard"},
@@ -97,8 +97,8 @@
     {
       "@type": "Product",
       "position": 6,
-      "name": "Windhorse Vineyard Chenin Blanc 2024",
-      "description": "Orchard fruit and wet stone, with real acid to carry it. Estate grown.",
+      "name": "Windhorse Vineyard Chenin Blanc 2026",
+      "description": "Orchard fruit and wet stone, with real acid to carry it. Estate grown, releasing spring 2027.",
       "image": "https://windhorsevineyard.com/images/wine-chenin-blanc.png",
       "brand": {"@type": "Brand", "name": "Windhorse Vineyard"},
       "offers": {"@type": "Offer", "availability": "https://schema.org/PreOrder", "url": "https://windhorsevineyard.com/#wines"}
@@ -106,8 +106,8 @@
     {
       "@type": "Product",
       "position": 7,
-      "name": "Windhorse Vineyard Primitivo 2024",
-      "description": "Sun-ripened dark fruit with a rustic, spiced edge. Estate grown.",
+      "name": "Windhorse Vineyard Primitivo (release TBD)",
+      "description": "Sun-ripened dark fruit with a rustic, spiced edge. Estate grown; release timing to be announced.",
       "brand": {"@type": "Brand", "name": "Windhorse Vineyard"},
       "offers": {"@type": "Offer", "availability": "https://schema.org/PreOrder", "url": "https://windhorsevineyard.com/#wines"}
     },
@@ -449,11 +449,13 @@
   .wine-head p{color:var(--stone);max-width:420px;font-size:17px;}
 
   .wine-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
+    display:grid;grid-template-columns:repeat(12,minmax(0,1fr));
     gap:1px;
     background:var(--hairline);
     border:1px solid var(--hairline);
   }
+  .wine-card{grid-column:span 4;}
+  .wine-card:nth-child(n+7){grid-column:span 3;}
   .nero-feature{
     margin-bottom:70px;
   }
@@ -581,12 +583,16 @@
   .block-pin:focus-visible{outline:none;}
   .block-pin:focus-visible::before{box-shadow:0 0 0 3px var(--gold-bright), 0 0 0 6px rgba(7,7,6,0.55);}
   .block-tooltip{
-    position:absolute;z-index:3;
-    background:var(--ink-deep);border:1px solid var(--rule);
+    position:absolute;z-index:9999;
+    background-color:#201b18 !important;background-image:none !important;
+    border:1px solid rgba(206,177,120,0.9) !important;
     padding:16px 20px;min-width:190px;
     font-family:var(--utility);
     opacity:0;pointer-events:none;transform:translateY(6px);
+    box-shadow:0 14px 32px rgba(0,0,0,0.45);
     transition:opacity .2s ease, transform .2s ease;
+    backdrop-filter:none;-webkit-backdrop-filter:none;
+    mix-blend-mode:normal;
   }
   .block-tooltip.show{opacity:1;transform:translateY(0);}
   .block-tooltip .name{font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:6px;}
@@ -781,6 +787,7 @@
     }
     .blockmap-frame{margin-top:24px;}
     .wine-grid{grid-template-columns:repeat(2,1fr);}
+    .wine-card,.wine-card:nth-child(n+7){grid-column:auto;}
     .visit-grid{grid-template-columns:1fr;}
     .visit-media{min-height:280px;}
     /* .visit-media::after{background:linear-gradient(180deg, rgba(14,13,11,0) 60%, rgba(23,21,15,1) 100%);} */
@@ -807,16 +814,18 @@
     .nav-toggle span{width:22px;height:1px;background:var(--parchment);}
     .hero-logo{width:min(420px, 86vw);}
     .wine-grid{grid-template-columns:1fr;}
+    .wine-card,.wine-card:nth-child(n+7){grid-column:auto;}
     .wine-head{flex-direction:column;align-items:flex-start;}
     .footer-top{grid-template-columns:1fr;}
     .nav-scrim{
       display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:150;
     }
     .nav-scrim.open{display:block;}
-    .blockmap-frame{aspect-ratio:1088/544;}
+    .blockmap-frame{aspect-ratio:1088/544;overflow:visible;}
     .blockmap-frame img{object-position:50% 15.15%;}
     .block-pin{top:var(--mt, var(--t));width:40px;height:40px;}
     .block-pin::before{width:11px;height:11px;}
+    .block-tooltip{position:fixed;max-width:180px;z-index:9999;background-color:#201b18 !important;background-image:none !important;border-color:rgba(206,177,120,0.9) !important;box-shadow:0 16px 28px rgba(0,0,0,0.5);backdrop-filter:none;-webkit-backdrop-filter:none;mix-blend-mode:normal;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -983,8 +992,8 @@
         <button class="block-pin" style="--t:13.5%;--l:63%;--mt:12.69%;--c:var(--v-grenache)" data-name="Block 9" data-variety="Grenache" data-year="2021" data-acres="0.97" data-availability="Fully contracted"></button>
         <button class="block-pin" style="--t:12.8%;--l:67%;--mt:11.64%;--c:var(--v-primitivo)" data-name="Block 10a" data-variety="Primitivo" data-year="2022" data-acres="3.08" data-availability="Call for availability"></button>
         <button class="block-pin" style="--t:19.1%;--l:67%;--mt:21.04%;--c:var(--v-primitivo)" data-name="Block 10b" data-variety="Primitivo" data-year="2024" data-acres="1.56" data-availability="2 tons"></button>
-        <button class="block-pin" style="--t:52.2%;--l:51%;--mt:70.45%;--c:var(--v-vermentino)" data-name="Block 1a" data-variety="Vermentino" data-year="Planned 2027" data-acres="1.96" data-availability="First crop expected 2029"></button>
-        <button class="block-pin" style="--t:59.5%;--l:60%;--mt:81.34%;--c:var(--v-vermentino)" data-name="Block 1a" data-variety="Vermentino" data-year="Planned 2027" data-acres="1.96" data-availability="First crop expected 2029"></button>
+        <button class="block-pin" style="--t:52.2%;--l:51%;--mt:70.45%;--c:var(--v-vermentino)" data-name="Block 1a" data-variety="Vermentino" data-year="2029" data-acres="1.96" data-availability="Release 2030"></button>
+        <button class="block-pin" style="--t:59.5%;--l:60%;--mt:81.34%;--c:var(--v-vermentino)" data-name="Block 1a" data-variety="Vermentino" data-year="2029" data-acres="1.96" data-availability="Release 2030"></button>
         <button class="block-pin" style="--t:56.0%;--l:50.1%;--mt:76.12%;--c:var(--v-cheninblanc)" data-name="Block 1b" data-variety="Chenin Blanc" data-year="2024" data-acres="1.14" data-availability="Call for availability"></button>
         <button class="block-pin" style="--t:64%;--l:58.8%;--mt:88.06%;--c:var(--v-cheninblanc)" data-name="Block 1c" data-variety="Chenin Blanc" data-year="2024" data-acres="1.01" data-availability="Call for availability"></button>
         <div class="block-tooltip" id="blockTooltip">
@@ -1042,73 +1051,83 @@
       <div class="wine-grid">
 
         <div class="wine-card reveal">
-          <div class="wine-bottle"><img src="images/wine-nero-davola.png" alt="Windhorse Vineyard 2025 Nero d'Avola bottle" loading="lazy"></div>
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Bordeaux_NR.webp" alt="Windhorse Vineyard Nero d'Avola bottle comp" loading="lazy"></div>
           <span class="wine-dot" style="background:var(--v-nero)"></span>
           <div class="wine-name">Nero d&rsquo;Avola</div>
-          <div class="wine-region">Columbia Gorge &middot; 2025</div>
+          <div class="wine-region">Columbia Gorge &middot; 2024</div>
           <p class="wine-note">Dark plum and blackberry, layered with cocoa powder and white pepper.</p>
           <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
+          <span class="wine-link wine-link-static">Releasing 2027</span>
         </div>
 
         <div class="wine-card reveal d1">
-          <div class="wine-bottle"><img src="images/wine-cabernet-franc.png" alt="Windhorse Vineyard Cabernet Franc bottle" loading="lazy"></div>
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Bordeaux_CF.webp" alt="Windhorse Vineyard Cabernet Franc bottle comp" loading="lazy"></div>
           <span class="wine-dot" style="background:var(--v-cabfranc)"></span>
           <div class="wine-name">Cabernet Franc</div>
           <div class="wine-region">Columbia Gorge &middot; 2024</div>
           <p class="wine-note">Structured and savory, with red currant and a graphite edge.</p>
           <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
-        </div>
-
-        <div class="wine-card reveal d2">
-          <div class="wine-bottle"><img src="images/wine-sangiovese.png" alt="Windhorse Vineyard Sangiovese bottle" loading="lazy"></div>
-          <span class="wine-dot" style="background:var(--v-sangiovese)"></span>
-          <div class="wine-name">Sangiovese</div>
-          <div class="wine-region">Columbia Gorge &middot; 2024</div>
-          <p class="wine-note">Bright cherry and dried herb, fine tannin, a savory finish.</p>
-          <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
+          <span class="wine-link wine-link-static">Releasing 2027</span>
         </div>
 
         <div class="wine-card reveal">
-          <div class="wine-bottle"><img src="images/wine-red-blend.png" alt="Windhorse Vineyard Red Blend bottle" loading="lazy"></div>
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Bordeaux_RB%20copy.webp" alt="Windhorse Vineyard Red Blend bottle comp" loading="lazy"></div>
           <span class="wine-dot" style="background:var(--v-redblend)"></span>
           <div class="wine-name">Red Blend</div>
           <div class="wine-region">Columbia Gorge &middot; 2024</div>
           <p class="wine-note">Estate reds layered together: dark fruit, warm spice, long finish.</p>
           <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
+          <span class="wine-link wine-link-static">Releasing 2027</span>
+        </div>
+
+        <div class="wine-card reveal d2">
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Bordeaux_SN%20copy.webp" alt="Windhorse Vineyard Sangiovese bottle comp" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-sangiovese)"></span>
+          <div class="wine-name">Sangiovese</div>
+          <div class="wine-region">Columbia Gorge</div>
+          <p class="wine-note">Bright cherry and dried herb, fine tannin, a savory finish.</p>
+          <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
+          <span class="wine-link wine-link-static">Release TBD</span>
         </div>
 
         <div class="wine-card reveal d1">
-          <div class="wine-bottle"><img src="images/wine-grenache.png" alt="Windhorse Vineyard Grenache bottle" loading="lazy"></div>
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Burgundy-GR.webp" alt="Windhorse Vineyard Grenache bottle comp" loading="lazy"></div>
           <span class="wine-dot" style="background:var(--v-grenache)"></span>
           <div class="wine-name">Grenache</div>
           <div class="wine-region">Columbia Gorge &middot; 2024</div>
           <p class="wine-note">Wind-thickened skins give this red its color and its grip.</p>
           <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
+          <span class="wine-link wine-link-static">Releasing 2027</span>
         </div>
 
         <div class="wine-card reveal d2">
-          <div class="wine-bottle"><img src="images/wine-chenin-blanc.png" alt="Windhorse Vineyard Chenin Blanc bottle" loading="lazy"></div>
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Burgundy-CB.webp" alt="Windhorse Vineyard Chenin Blanc bottle comp" loading="lazy"></div>
           <span class="wine-dot" style="background:var(--v-cheninblanc)"></span>
           <div class="wine-name">Chenin Blanc</div>
-          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <div class="wine-region">Columbia Gorge &middot; 2026</div>
           <p class="wine-note">Orchard fruit and wet stone, with real acid to carry it.</p>
           <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
+          <span class="wine-link wine-link-static">Releasing Spring 2027</span>
+        </div>
+
+        <div class="wine-card reveal d1">
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Burgundy-VR.webp" alt="Windhorse Vineyard Vermentino bottle comp" loading="lazy"></div>
+          <span class="wine-dot" style="background:var(--v-vermentino)"></span>
+          <div class="wine-name">Vermentino</div>
+          <div class="wine-region">Columbia Gorge &middot; 2029</div>
+          <p class="wine-note">Citrus, salinity, and a bright mineral tension shaped by canyon wind.</p>
+          <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
+          <span class="wine-link wine-link-static">Releasing 2030</span>
         </div>
 
         <div class="wine-card reveal">
-          <div class="wine-bottle placeholder"><img src="images/windhorse_mark.png" alt="" style="height:64px;width:auto;opacity:0.35;"></div>
+          <div class="wine-bottle"><img src="images/bottles/CCV_W_Bordeaux_PR.webp" alt="Windhorse Vineyard Primitivo bottle comp" loading="lazy"></div>
           <span class="wine-dot" style="background:var(--v-primitivo)"></span>
           <div class="wine-name">Primitivo</div>
-          <div class="wine-region">Columbia Gorge &middot; 2024</div>
+          <div class="wine-region">Columbia Gorge</div>
           <p class="wine-note">Sun-ripened dark fruit with a rustic, spiced edge.</p>
           <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
+          <span class="wine-link wine-link-static">Release TBD</span>
         </div>
 
         <div class="wine-card reveal d1">
@@ -1128,7 +1147,7 @@
           <div class="wine-region">Columbia Gorge &middot; 2024</div>
           <p class="wine-note">A bold red blend with dark fruit and a rustic, earthy core.</p>
           <div class="wine-award">Estate Grown &middot; Single Vineyard</div>
-          <span class="wine-link wine-link-static">Coming Spring 2026</span>
+          <span class="wine-link wine-link-static">Releasing Dec 2026</span>
         </div>
 
       </div>
@@ -1338,8 +1357,18 @@
       tip.classList.add('show');
       requestAnimationFrame(() => {
         const tipW = tip.offsetWidth, tipH = tip.offsetHeight;
+        if(window.innerWidth <= 640){
+          const left = Math.min(Math.max(pinRect.left + pinRect.width/2 - tipW/2, 12), window.innerWidth - tipW - 12);
+          const top = Math.min(Math.max(pinRect.top - tipH - 18, 12), window.innerHeight - tipH - 12);
+          tip.style.position = 'fixed';
+          tip.style.left = left + 'px';
+          tip.style.top = top + 'px';
+          tip.style.opacity = '1';
+          return;
+        }
         let left = (pinLeft/100)*mapRect.width + 18;
         let top = (pinTop/100)*mapRect.height - tipH/2;
+        tip.style.position = 'absolute';
         if(left + tipW > mapRect.width - 10) left = (pinLeft/100)*mapRect.width - tipW - 18;
         top = Math.max(10, Math.min(top, mapRect.height - tipH - 10));
         tip.style.left = left + 'px';

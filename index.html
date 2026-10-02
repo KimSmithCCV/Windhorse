@@ -583,8 +583,10 @@
   .block-pin:focus-visible{outline:none;}
   .block-pin:focus-visible::before{box-shadow:0 0 0 3px var(--gold-bright), 0 0 0 6px rgba(7,7,6,0.55);}
   .block-tooltip{
-    position:absolute;z-index:9999;
-    background-color:#201b18 !important;background-image:none !important;
+    position:fixed;z-index:9999;left:0;top:0;
+    background:#201b18 !important;
+    background-color:#201b18 !important;
+    background-image:none !important;
     border:1px solid rgba(206,177,120,0.9) !important;
     padding:16px 20px;min-width:190px;
     font-family:var(--utility);
@@ -593,8 +595,9 @@
     transition:opacity .2s ease, transform .2s ease;
     backdrop-filter:none;-webkit-backdrop-filter:none;
     mix-blend-mode:normal;
+    filter:none !important;
   }
-  .block-tooltip.show{opacity:1;transform:translateY(0);}
+  .block-tooltip.show{opacity:1 !important;transform:translateY(0);}
   .block-tooltip .name{font-size:15px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold-bright);margin-bottom:6px;}
   .block-tooltip .variety{font-family:var(--body);font-style:italic;color:var(--parchment);font-size:16px;margin-bottom:8px;}
   .block-tooltip .meta{font-size:11px;letter-spacing:0.06em;color:var(--stone);text-transform:uppercase;margin-top:4px;}
@@ -813,8 +816,12 @@
     }
     .nav-toggle span{width:22px;height:1px;background:var(--parchment);}
     .hero-logo{width:min(420px, 86vw);}
-    .wine-grid{grid-template-columns:1fr;}
+    .wine-grid{grid-template-columns:repeat(2, minmax(0, 1fr));}
     .wine-card,.wine-card:nth-child(n+7){grid-column:auto;}
+    .wine-card{padding:28px 12px 20px;}
+    .wine-bottle{height:180px;margin-bottom:18px;}
+    .wine-note{font-size:14px;min-height:42px;}
+    .wine-name,.wine-region{letter-spacing:0.1em;}
     .wine-head{flex-direction:column;align-items:flex-start;}
     .footer-top{grid-template-columns:1fr;}
     .nav-scrim{
@@ -996,12 +1003,12 @@
         <button class="block-pin" style="--t:59.5%;--l:60%;--mt:81.34%;--c:var(--v-vermentino)" data-name="Block 1a" data-variety="Vermentino" data-year="2029" data-acres="1.96" data-availability="Release 2030"></button>
         <button class="block-pin" style="--t:56.0%;--l:50.1%;--mt:76.12%;--c:var(--v-cheninblanc)" data-name="Block 1b" data-variety="Chenin Blanc" data-year="2024" data-acres="1.14" data-availability="Call for availability"></button>
         <button class="block-pin" style="--t:64%;--l:58.8%;--mt:88.06%;--c:var(--v-cheninblanc)" data-name="Block 1c" data-variety="Chenin Blanc" data-year="2024" data-acres="1.01" data-availability="Call for availability"></button>
-        <div class="block-tooltip" id="blockTooltip">
-          <div class="name" id="blockTooltipName"></div>
-          <div class="variety" id="blockTooltipVariety"></div>
-          <div class="meta" id="blockTooltipMeta"></div>
-          <div class="meta" id="blockTooltipAvailability"></div>
-        </div>
+      </div>
+      <div class="block-tooltip" id="blockTooltip">
+        <div class="name" id="blockTooltipName"></div>
+        <div class="variety" id="blockTooltipVariety"></div>
+        <div class="meta" id="blockTooltipMeta"></div>
+        <div class="meta" id="blockTooltipAvailability"></div>
       </div>
       <p class="blockmap-note reveal d4">31.49 estate acres across 13 blocks, planted 2021&ndash;2024, rising from the 500&rsquo; valley floor to a 1,355&rsquo; high point.</p>
       <div class="blockmap-legend reveal d4">
@@ -1354,23 +1361,21 @@
       const pinLeft = ((pinRect.left + pinRect.width/2 - mapRect.left) / mapRect.width) * 100;
       const pinTop = ((pinRect.top + pinRect.height/2 - mapRect.top) / mapRect.height) * 100;
       tip.style.opacity = '0';
+      tip.style.background = '#201b18';
+      tip.style.backgroundColor = '#201b18';
+      tip.style.filter = 'none';
       tip.classList.add('show');
       requestAnimationFrame(() => {
         const tipW = tip.offsetWidth, tipH = tip.offsetHeight;
+        let left = pinRect.left + pinRect.width/2 - tipW/2;
+        let top = pinRect.top - tipH - 18;
         if(window.innerWidth <= 640){
-          const left = Math.min(Math.max(pinRect.left + pinRect.width/2 - tipW/2, 12), window.innerWidth - tipW - 12);
-          const top = Math.min(Math.max(pinRect.top - tipH - 18, 12), window.innerHeight - tipH - 12);
-          tip.style.position = 'fixed';
-          tip.style.left = left + 'px';
-          tip.style.top = top + 'px';
-          tip.style.opacity = '1';
-          return;
+          left = Math.min(Math.max(left, 12), window.innerWidth - tipW - 12);
+          top = Math.min(Math.max(top, 12), window.innerHeight - tipH - 12);
+        } else {
+          left = Math.min(Math.max(left, 12), window.innerWidth - tipW - 12);
+          top = Math.max(12, Math.min(top, window.innerHeight - tipH - 12));
         }
-        let left = (pinLeft/100)*mapRect.width + 18;
-        let top = (pinTop/100)*mapRect.height - tipH/2;
-        tip.style.position = 'absolute';
-        if(left + tipW > mapRect.width - 10) left = (pinLeft/100)*mapRect.width - tipW - 18;
-        top = Math.max(10, Math.min(top, mapRect.height - tipH - 10));
         tip.style.left = left + 'px';
         tip.style.top = top + 'px';
         tip.style.opacity = '1';
